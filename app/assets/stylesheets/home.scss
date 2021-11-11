@@ -1,3 +1,116 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@media screen and (min-width: 1024px) {
+  .sec {
+    background: black;
+    padding: 5rem !important;
+  }
+
+  .column .is-half {
+    margin-top: 50%;
+  }
+}
+@media screen and (min-width: 769px), print {
+  .column.is-half,
+  .column.is-half-tablet {
+    flex: revert;
+    width: 50%;
+    margin-top: 15%;
+  }
+
+  .column.is-half {
+    display: grid !important;
+  }
+}
+
+.nav {
+  background: #ffffff00 !important;
+}
+
+.scrolling-active {
+  background: white !important;
+  box-shadow: - 3px 1rem rgba(0,0,0,.1);
+}
+
+.section-first {
+  background-image: url("https://a0.muscache.com/im/pictures/b649a6dc-761c-45f0-938c-7eac950620e7.jpg?im_w=1440");
+  height: 93vh;
+  margin-top: 8%;
+  border-radius: 12px;
+
+  .content {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+
+    .img-main {
+      width: 50%;
+    }
+
+    h2 {
+      margin-top: 0.1428em !important;
+    }
+  }
+}
+.inline-form{
+  height: 5.4rem;
+  background: white;
+  padding: 1.9%;
+  border-radius: 52px;
+  .search-btn{
+    border-radius: 60px;
+  }
+  .control.has-icons-left .select select {
+    padding-left: 2.5em;
+    height: 78px;
+    border-radius: 10%;
+    padding-top: -30px;
+    margin-top: -18px;
+    border-radius: 70px;
+    border: none;
+    &:hover{
+      background: #efeded;
+    }
+}
+}
+.section{
+
+  .first-section{
+   height: 50%;
+   background: black
+  }
+  .second-section{
+   height: 50%;
+   background: white
+
+  }
+}
+.section.is-large {
+  padding:5rem 8rem !important;
+}
+.section-second{
+ padding: 0rem;
+  background-image: url("https://a0.muscache.com/im/pictures/3d147230-aeba-4a73-aee5-adcf388eba76.jpg?");
+  background-size:cover;
+  height: 93vh;
+margin-top: -50%;
+  border-radius: 12px;
+  .content {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+
+    .img-main {
+      width: 50%;
+    }
+
+    h2 {
+      margin-top: 0.1428em !important;
+    }
+  }
+  .subtitle{
+    
+  }
+
+}
