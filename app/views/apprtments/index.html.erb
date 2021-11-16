@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apprtments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hostingas</th>
+      <th>Dangerousthings</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Amenities</th>
+      <th>Guestfavorites</th>
+      <th>Images</th>
+      <th>Title</th>
+      <th>Highlights</th>
+      <th>Street</th>
+      <th>Suit</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Zipcode</th>
+      <th>Rentingtype</th>
+      <th>Place</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apprtments.each do |apprtment| %>
+      <tr>
+        <td><%= apprtment.hostingAs %></td>
+        <td><%= apprtment.dangerousThings %></td>
+        <td><%= apprtment.price %></td>
+        <td><%= apprtment.description %></td>
+        <td><%= apprtment.amenities %></td>
+        <td><%= apprtment.guestFavorites %></td>
+        <td><%= apprtment.images %></td>
+        <td><%= apprtment.title %></td>
+        <td><%= apprtment.highlights %></td>
+        <td><%= apprtment.street %></td>
+        <td><%= apprtment.suit %></td>
+        <td><%= apprtment.city %></td>
+        <td><%= apprtment.state %></td>
+        <td><%= apprtment.country %></td>
+        <td><%= apprtment.zipCode %></td>
+        <td><%= apprtment.rentingType %></td>
+        <td><%= apprtment.place %></td>
+        <td><%= link_to 'Show', apprtment %></td>
+        <td><%= link_to 'Edit', edit_apprtment_path(apprtment) %></td>
+        <td><%= link_to 'Destroy', apprtment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apprtment', new_apprtment_path %>

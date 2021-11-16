@@ -10,7 +10,74 @@
     </a>
     <div class="navbar-end">
       <div class="navbar-item">
-        <button class="button is-danger">Sign in</button>
+        <% if user_signed_in? %>
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span class="icon is-small">
+                  <%= image_tag'user',class:"fas fa-angle-down" %>
+                </span>
+                <span><%= image_tag'menu',class:"fas fa-angle-down menuIcon" %></span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  <%= current_user.full_name %>
+                </a>
+                <a class="dropdown-item">
+                  Profile
+                </a>
+
+                <a href="#" class="dropdown-item">
+                  Be a host
+                </a>
+                <hr class="dropdown-divider">
+                <%= link_to destroy_user_session_path,method: :delete do %>
+                <div class="dropdown-item">
+                  Log out
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% elsif hoster_signed_in? %>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+              <span class="icon is-small">
+                <%= image_tag'user',class:"fas fa-angle-down" %>
+              </span>
+              <span><%= image_tag'menu',class:"fas fa-angle-down menuIcon" %></span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item">
+                <%= current_hoster.full_name %>
+              </a>
+              <a class="dropdown-item">
+                Profile
+              </a>
+
+              <a href="#" class="dropdown-item">
+                Be a host
+              </a>
+              <hr class="dropdown-divider">
+              <%= link_to destroy_user_session_path,method: :delete do %>
+              <div class="dropdown-item">
+                Log out
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% else %>
+          <% unless current_page?(new_user_session_path) %>
+            <%= link_to "Sign-in",new_user_session_path,class:"button is-danger" %>
+          <% end %>
+        <% end %>
+
       </div>
     </div>
   </div>

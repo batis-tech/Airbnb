@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+ .hero.is-primary.is-bold {
+     background-image: radial-gradient(circle at center,#FF385C 0%,#E61E4D 27.5%,#E31C5F 40%,#D70466 57.5%,#BD1E59 75%,#BD1E59 100%) !important;
+ }
+ .button.is-success {
+    background-color: #f14668 !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    height: 3.4rem;
+    width: 8rem;
+    border-radius: 50px;
+}
+.box {
+    background-color: white!important;
+    border-radius: 6px ;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%) ;
+    color: #4a4a4a;
+    display: block ;
+    padding: 1.25rem ;
+}

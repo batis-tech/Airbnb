@@ -1,0 +1,2 @@
+class Apprtment < ApplicationRecord
+end

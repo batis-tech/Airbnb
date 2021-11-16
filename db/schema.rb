@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_14_152632) do
+ActiveRecord::Schema.define(version: 2021_11_15_200516) do
+
+  create_table "apprtments", force: :cascade do |t|
+    t.boolean "hostingAs"
+    t.string "dangerousThings"
+    t.string "price"
+    t.string "description"
+    t.string "amenities"
+    t.string "guestFavorites"
+    t.string "images"
+    t.string "title"
+    t.string "highlights"
+    t.string "street"
+    t.string "suit"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "zipCode"
+    t.string "rentingType"
+    t.string "place"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +46,10 @@ ActiveRecord::Schema.define(version: 2021_11_14_152632) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "fName"
+    t.string "lName"
+    t.decimal "phone"
+    t.boolean "hoster"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

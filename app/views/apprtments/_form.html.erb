@@ -1,0 +1,102 @@
+<%= form_with(model: apprtment) do |form| %>
+  <% if apprtment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apprtment.errors.count, "error") %> prohibited this apprtment from being saved:</h2>
+
+      <ul>
+        <% apprtment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :hostingAs %>
+    <%= form.check_box :hostingAs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dangerousThings %>
+    <%= form.text_field :dangerousThings %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amenities %>
+    <%= form.text_field :amenities %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guestFavorites %>
+    <%= form.text_field :guestFavorites %>
+  </div>
+
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.text_field :images %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :highlights %>
+    <%= form.text_field :highlights %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suit %>
+    <%= form.text_field :suit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipCode %>
+    <%= form.text_field :zipCode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rentingType %>
+    <%= form.text_field :rentingType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

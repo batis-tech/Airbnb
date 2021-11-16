@@ -1,0 +1,2 @@
+module ApprtmentsHelper
+end

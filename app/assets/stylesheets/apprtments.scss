@@ -1,0 +1,20 @@
+// Place all the styles related to the apprtments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.block{
+  display:flex;
+  width:100vw;
+  height:100vh;
+  text-align:center;
+}
+.left-p{
+  flex:1;
+  background:linear-gradient(#d02e77,#412a9d);
+}
+.right-p{
+  flex:1;
+  background:#fff;
+}
+.columns.is-vcentered {
+    align-items: center;
+}
