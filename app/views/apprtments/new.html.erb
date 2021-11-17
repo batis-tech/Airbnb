@@ -1,19 +1,134 @@
-<!-- <h1>New Apprtment</h1>
-  <%= render 'form', apprtment: @apprtment %>
-  <%= link_to 'Back', apprtments_path %> -->
-
+<!-- <h1>New Apprtment</h1> <%= render 'form', apprtment: @apprtment %> <%= link_to 'Back', apprtments_path %> -->
+<div class="maximum">
 <section class="block">
   <div class="left-p">
     <div class="container">
       <div class="columns is-mobile is-centered is-vcentered ">
-  <div class="column is-half">
-    <p class="bd-notification is-primary">
-      <code class="html">is-half</code><br>
-    </p>
-  </div>
-</div>
+        <div class="column is-half">
+          <div class="step js-step"></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="right-p">Right</div>
+  <div class="right-p">
+    <div class="wrapper">
+      <form action="/" method="get" id="form_wizard_1" class="form-wizard js-form-wizard" novalidate="novalidate">
+        <div class="columns">
+          <fieldset class="step js-step">
+            <div class="column is-half text">
+              <h1 class="title is-1">what kind of place wil u host</h1>
+            </div>
+            <div class="column is-half selection">
+                <div class="plans">
+                  <div class="input-group js-input-group">
+                  <label class="plan basic-plan" for="Apartment">
+                    <input  type="radio" name="plan" id="Apartment" class="form-control js-form-control" required="required">
+                    <div class="plan-content">
+                      <%= image_tag 'back' %>
+                      <div class="plan-details">
+                        <span>Apartment</span>
+                      </div>
+                    </div>
+                  </label>
+                  <label class="plan basic-plan" for="House">
+                    <input  type="radio" name="plan" id="House" class="form-control js-form-control" required="required">
+                    <div class="plan-content">
+                      <%= image_tag 'house' %>
+                      <div class="plan-details">
+                        <span>House</span>
+                      </div>
+                    </div>
+                  </label>
+                  <label class="plan basic-plan" for="secondary">
+                    <input  type="radio" name="plan" id="secondary" class="form-control js-form-control" required="required">
+                    <div class="plan-content">
+                      <%= image_tag 'secondary' %>
+                      <div class="plan-details">
+                        <span>Secondary Unit</span>
+                      </div>
+                    </div>
+                  </label>
+                  <label class="plan basic-plan" for="Unique">
+                    <input  type="radio" name="plan" id="Unique" class="form-control js-form-control" required="required">
+                    <div class="plan-content">
+                      <%= image_tag 'unique' %>
+                      <div class="plan-details">
+                        <span>Unique space</span>
+                      </div>
+                    </div>
+                  </label>
+                  <label class="plan basic-plan" for="Loft">
+                    <input  type="radio" name="plan" id="Loft" class="form-control js-form-control" required="required">
+                    <div class="plan-content">
+                      <%= image_tag 'loft' %>
+                      <div class="plan-details">
+                        <span>Loft</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="step js-step">
+            <div class="column is-half">
+              what kind of place wil u host
+            </div>
+            <div class="column is-half">
+              <legend>nigga hwat</legend>
+              <div class="input-group js-input-group">
+                <label for="first_name">First name</label>
+                <input type="text" name="first_name" id="first_name" class="form-control js-form-control" required="required">
+              </div>
+              <div class="input-group js-input-group">
+                <label for="last_name">Last name</label>
+                <input type="text" name="last_name" id="last_name" class="form-control js-form-control" required="required">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="step js-step">
+            <div class="column is-half">
+              what kind of place wil u host
+            </div>
+            <div class="column is-half">
+              <legend>year</legend>
+              <div class="input-group js-input-group">
+                <label for="first_name">First name</label>
+                <input type="text" name="first_name" id="first_name" class="form-control js-form-control" required="required">
+              </div>
+              <div class="input-group js-input-group">
+                <label for="last_name">Last name</label>
+                <input type="text" name="last_name" id="last_name" class="form-control js-form-control" required="required">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="step js-step">
+            <div class="column is-half">
+              what kind of place wil u host
+            </div>
+            <div class="column is-half">
+              <legend>age</legend>
+              <div class="input-group js-input-group">
+                <label for="first_name">First name</label>
+                <input type="text" name="first_name" id="first_name" class="form-control js-form-control" required="required">
+              </div>
+              <div class="input-group js-input-group">
+                <label for="last_name">Last name</label>
+                <input type="text" name="last_name" id="last_name" class="form-control js-form-control" required="required">
+              </div>
+            </div>
+          </fieldset>
 
+        </div>
+        <div class="footers">
+          <div class="progress-bar js-progress-bar"></div>
+          <div class="input-group text-right">
+            <button type="button" class="btn-prev js-btn-prev ">Prev</button>
+            <button type="button" class="js-btn-next button is-danger" data-step-text="Next" data-final-step-text="Submit">Next</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+</div>
