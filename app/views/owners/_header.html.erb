@@ -1,0 +1,103 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <%= image_tag('airbnb-logo',width:"35", height:"20")%>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu ">
+    <div class="navbar-start">
+      <a class="navbar-item">
+      Today
+      </a>
+
+      <a class="navbar-item">
+        Inbox
+      </a>
+
+      <a class="navbar-item">
+        Calender
+      </a>
+
+      <a class="navbar-item">
+        Insights
+      </a>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span class="icon is-small">
+                  <%= image_tag'user',class:"fas fa-angle-down" %>
+                </span>
+                <span><%= image_tag'menu',class:"fas fa-angle-down menuIcon" %></span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  <%= current_user.full_name %>
+                </a>
+                <a class="dropdown-item">
+                  Profile
+                </a>
+
+                <a href="#" class="dropdown-item">
+                  Be a host
+                </a>
+                <hr class="dropdown-divider">
+                <%= link_to destroy_user_session_path,method: :delete do %>
+                <div class="dropdown-item">
+                  Log out
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% elsif hoster_signed_in? %>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+              <span class="icon is-small">
+                <%= image_tag'user',class:"fas fa-angle-down" %>
+              </span>
+              <span><%= image_tag'menu',class:"fas fa-angle-down menuIcon" %></span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item">
+                <%= current_hoster.full_name %>
+              </a>
+              <a class="dropdown-item">
+                Profile
+              </a>
+
+              <a href="#" class="dropdown-item">
+                Be a host
+              </a>
+              <hr class="dropdown-divider">
+              <%= link_to destroy_user_session_path,method: :delete do %>
+              <div class="dropdown-item">
+                Log out
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% else %>
+          <% unless current_page?(new_user_session_path) %>
+            <%= link_to "Sign-in",new_user_session_path,class:"button is-danger" %>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</nav>

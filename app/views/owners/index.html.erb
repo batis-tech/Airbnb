@@ -1,0 +1,152 @@
+<%= render'header'%>
+<section class="hero is-danger">
+  <div class="hero-body">
+    <p class="title is-3">
+      Welcome Home
+    </p>
+    <p class="subtitle">
+      <%= current_hoster.full_name %>
+    </p>
+  </div>
+</section>
+<div class="container is-fullhd">
+  <p class="title header is-4">
+    Your reservations
+  </p>
+  <div class="columns is-desktop">
+    <div class="column is-one-quarter">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">John Smith</p>
+            </div>
+          </div>
+          <hr>
+          <div class="content">
+            Lorem ipsum dolor sit amet.
+            <small>price: 99$/per night</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container is-fullhd">
+  <p class="title header is-4">
+    Upcoming reservations
+  </p>
+  <!--Master Tab Column Start-->
+  <div class="tab-column">
+    <!--Tab 1 Button-->
+    <input type="radio" name="tab" id="tab-1" checked="checked">
+    <label for="tab-1">Currently hosting</label>
+    <!--Tab 2 Button-->
+    <input type="radio" name="tab" id="tab-2">
+    <label for="tab-2">Arriving soon</label>
+    <!--Tab 3 Button-->
+    <input type="radio" name="tab" id="tab-3">
+    <label for="tab-3">Checking out</label>
+    <!--Tab 4 Button-->
+    <input type="radio" name="tab" id="tab-4">
+    <label for="tab-4">Next 7 days</label>
+
+    <!--Other Addons Start-->
+
+    <!--Other Addons End-->
+
+    <!--Tab 1-->
+    <div class="tab-content">
+      <div class="tab_content tab-1">
+        <div class="columns is-desktop">
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="content">
+                  Lorem ipsum dolor sit amet.
+                  <small>price: 99$/per night</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Tab 2-->
+      <div class="tab_content tab-2">
+        <div class="columns is-desktop">
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="content">
+                  Lorem ipsum dolor sit amet.
+                  <small>price: 99$/per night</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Tab 3-->
+      <div class="tab_content tab-3">
+        <div class="columns is-desktop">
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="content">
+                  Lorem ipsum dolor sit amet.
+                  <small>price: 99$/per night</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Tab 4-->
+      <div class="tab_content tab-4">
+        <div class="columns is-desktop">
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="content">
+                  Lorem ipsum dolor sit amet.
+                  <small>price: 99$/per night</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Master Tab Column End-->
+</div>
+<%= render 'home/footer' %>

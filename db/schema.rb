@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_200516) do
+ActiveRecord::Schema.define(version: 2021_11_22_163713) do
 
   create_table "apprtments", force: :cascade do |t|
     t.boolean "hostingAs"
-    t.string "dangerousThings"
+    t.text "dangerousThings"
     t.string "price"
     t.string "description"
     t.string "amenities"

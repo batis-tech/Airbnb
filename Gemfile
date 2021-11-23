@@ -25,6 +25,15 @@ gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+#image uploads amazon server
+gem 'carrierwave', '~> 2.0'
+gem 'fog','~> 1.37.0'
+gem 'fog-aws'
+gem 'aws-sdk-s3', '~> 1'
+#local ENV vars
+gem 'figaro'
+#image resizing
+gem "mini_magick"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

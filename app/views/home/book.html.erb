@@ -1,0 +1,51 @@
+<%= render 'header' %>
+<div class="container is-fullhd">
+  <div class="columns is-desktop is-multiline">
+    <% @apprtments.each do |f| %>
+    <div class="column is-one-quarter">
+      <div class="card card-book">
+        <div class="card-image">
+            <div id="slider">
+              <% f.images.each do |image| %>
+              <div class="img-slider">
+                <img src="<%= image.url %>" alt="">
+              </div>
+              <% end %>
+            </div>
+         <button id="prev"><i class="fas fa-chevron-left fa-2x"></i></button>
+         <button id="next"><i class="fas fa-chevron-right fa-2x"></i></button>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <small><%= f.title%></small>
+          </div>
+          <div class="column">
+            <small><%= f.price %>$/per night</small>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <small><%= f.price %>$/per night</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'footer' %>
+<script type="text/javascript">
+  const slider = document.getElementById('slider');
+const prevSlider = document.getElementById('prev');
+const nextSlider = document.getElementById('next');
+
+
+nextSlider.addEventListener('click', (e) => {
+    slider.scrollBy(300, 0);
+});
+
+prevSlider.addEventListener('click', (e) => {
+    slider.scrollBy(-300, 0);
+});
+</script>

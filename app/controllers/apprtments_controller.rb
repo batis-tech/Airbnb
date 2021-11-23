@@ -13,6 +13,7 @@ class ApprtmentsController < ApplicationController
   # GET /apprtments/new
   def new
     @apprtment = Apprtment.new
+    @dangerousThings = ['Security camera(s)','Weapons','Dangerous animals']
   end
 
   # GET /apprtments/1/edit
@@ -64,6 +65,6 @@ class ApprtmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def apprtment_params
-      params.require(:apprtment).permit(:hostingAs, :dangerousThings, :price, :description, :amenities, :guestFavorites, :images, :title, :highlights, :street, :suit, :city, :state, :country, :zipCode, :rentingType, :place)
+      params.require(:apprtment).permit(:hostingAs, {:dangerousThings => []}, :price, :description, :amenities, :guestFavorites, {images: []} , :title, :highlights, :street, :suit, :city, :state, :country, :zipCode, :rentingType, :place)
     end
 end

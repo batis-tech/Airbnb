@@ -21,8 +21,19 @@
   flex:1;
   background:#fff;
 }
+.column{
+      margin-top: 12% !important;
+}
 .columns.is-vcentered {
     align-items: center;
+}
+.scroller{
+  position: relative;
+    margin-left: -9%;
+}
+.scrolle-fav{
+  position: relative;
+margin-left: 0%;
 }
 .wrapper {
     margin: 0 auto;
@@ -152,7 +163,66 @@ fieldset{
     width: 78px;
     border-radius: 5px;
 }
+.amenitiesQ{
+  position: fixed;
+      margin-top: 0% !important;
+}
+.scrollDiv{
+  margin-top: 12% !important;
+  display: block !important;
+  .title{
+    text-align: left;
+  }
+  .input{
+    height: 10rem;
+    font-size: 29px;
+  }
+}
+.scrollDivDesc{
+  margin-top: 12% !important;
+  display: block !important;
+  .title{
+    text-align: left;
+  }
+  .textarea{
 
+    font-size: 20px;
+  }
+}
+.scrollDivPrice{
+  margin-top: 12% !important;
+  display: block !important;
+  .title{
+    text-align: center;
+  }
+  .input{
+
+    font-size: 30px;
+    height: 5rem;
+    width: 16rem;
+    border-radius: 50px;
+  }
+
+}
+.control{
+  text-align: left;
+  .radio{
+    padding-bottom: 12px
+  }
+  .checkbox{
+    padding-bottom: 12px
+  }
+}
+.amenities-box{
+  width: 9rem !important;
+          text-align: center !important;
+
+      img{
+        margin-right: 0px;
+        height: 42px;
+        width: 45px;
+      }
+}
 .plans .plan .plan-details span {
   margin-bottom: 10px;
   display: block;
@@ -167,6 +237,13 @@ fieldset{
   text-align: right;
   width: 100%;
 
+}
+.apptType{
+  display: block !important;
+  text-align: left;
+}
+.amenities{
+  display: table-cell;
 }
 .container .title {
   font-size: 16px;
@@ -300,4 +377,42 @@ fieldset{
     display: none;
   }
 }
+}
+.is-boxed{
+  .file-label{
+    width: 100%;
+    .file-cta{
+      height: 50% !important;
+      padding: 6rem 4rem !important;
+    }
+  }
+}
+.navbar {
+  border-bottom: 0.1px solid #7b7b7b;
+  min-height: 3rem !important;
+  a.navbar-item:hover{
+    color: #f14569;
+  }
+  img {
+    max-height: 2.5rem;
+  }
+  .navbar-start {
+    justify-content: center;
+    width: 100%;
+}
+  .button.is-danger {
+    height: 3.3rem !important;
+    width: 8rem !important;
+  }
+  .dropdown{
+    .menuIcon{
+    height: 1rem;
+    margin-top: 9px;
+    }
+    button{
+      border-radius: 50px;
+      height: 2.4rem;
+        width: 4rem;
+    }
+  }
 }

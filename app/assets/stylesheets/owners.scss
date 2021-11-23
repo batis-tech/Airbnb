@@ -1,0 +1,96 @@
+.is-fullhd{
+  margin-left: 5% !important;
+  .header{
+    padding-top: 3%;
+    color:#f14668;
+  }
+  .columns{
+    padding: 1% 0% 3% 0%;
+    overflow: scroll;
+    scroll-behavior: none;
+    .column.is-one-quarter{
+      width: 22%;
+      .card{
+        border-radius: 50px;
+        padding: 10px;
+        &-image{
+          img{
+            border-radius: 43px
+          }
+        }
+        &-content{
+          hr {
+    background-color: whitesmoke;
+    border: none;
+    display: block;
+    height: 2px;
+    margin: 0.5rem 0;
+}
+        }
+      }
+    }
+  }
+
+}
+
+/*Master Tab Column*/
+.tab-column {
+    max-width: 100%;
+}
+/*Master Tab Column Tabs*/
+.tab-column label {
+    display: block;
+    float: left;
+    margin-left: 0px;
+    margin-right: 5px;
+    padding: 15px 29px;
+    background-color: #e6e6e6;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 1.5;
+	  color:#363636;
+    border-radius: 50px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+/*Master Tab Column Tabs Hover*/
+.tab-column label:hover {
+    background-color: #202848;
+    color: #fff;
+}
+/*Master Tab Column Hide Radio Buttons*/
+.tab-column input {
+    display: none;
+}
+/*Master Tab Column Tab Checked*/
+.tab-column input:checked + label {
+    background-color: #f14668;
+    color: #fff;
+}
+/*Master Tab Column Tab Quantity*/
+.tab-column input[id=tab-1]:checked ~ .tab-content .tab-1,
+.tab-column input[id=tab-2]:checked ~ .tab-content .tab-2,
+.tab-column input[id=tab-3]:checked ~ .tab-content .tab-3,
+.tab-column input[id=tab-4]:checked ~ .tab-content .tab-4 {
+    display: block;
+}
+.tab-content{
+  padding-top: 7%
+}
+/*Master Tab Column Body*/
+.tab-column .tab_content {
+    display: none;
+    clear: both;
+    width: 100%;
+    height: 20rem;
+
+}
+/*Master Tab Column Body Background Per Tabs Selected*/
+.tab-2,.tab-3,.tab-4 {
+    background-color: #ffffff;
+
+    border-radius: 0 0 5px 5px;
+}

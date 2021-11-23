@@ -1,102 +1,422 @@
-<%= form_with(model: apprtment) do |form| %>
-  <% if apprtment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(apprtment.errors.count, "error") %> prohibited this apprtment from being saved:</h2>
-
-      <ul>
-        <% apprtment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with(model: apprtment,html: {class: "form-wizard js-form-wizard", multipart: true }) do |form| %>
+<div class="columns">
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1">what kind of place wil you host?</h1>
     </div>
-  <% end %>
+    <div class="column is-half selection">
+      <div class="plans">
+        <div class="input-group js-input-group">
+          <label class="plan basic-plan" for="apartment">
+            <%= form.radio_button :place,"apartment",class:"form-control js-form-control",id:"apartment" %>
+            <div class="plan-content">
+              <%= image_tag 'back' %>
+              <div class="plan-details">
+                <span>
+                  <%= form.label :place, "apartment", value: "apartment" %></span>
+              </div>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="House">
+            <%= form.radio_button :place,"House",class:"form-control js-form-control",id:"House" %>
+            <div class="plan-content">
+              <%= image_tag 'house' %>
+              <div class="plan-details">
+                <span>
+                  <%= form.label :place, "House", value: "House" %></span>
+              </div>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="Secondary Unit">
+            <%= form.radio_button :place,"Secondary Unit",class:"form-control js-form-control",id:"Secondary Unit" %>
+            <div class="plan-content">
+              <%= image_tag 'secondary' %>
+              <div class="plan-details">
+                <span>
+                  <%= form.label :place, "Secondary Unit", value: "Secondary Unit" %></span>
+              </div>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="Unique space">
+            <%= form.radio_button :place,"Unique space",class:"form-control js-form-control",id:"Unique space" %>
+            <div class="plan-content">
+              <%= image_tag 'unique' %>
+              <div class="plan-details">
+                <span>
+                  <%= form.label :place, "Unique space", value: "Unique space" %></span>
+              </div>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="Loft">
+            <%= form.radio_button :place,"Loft",class:"form-control js-form-control",id:"Loft" %>
+            <div class="plan-content">
+              <%= image_tag 'loft' %>
+              <div class="plan-details">
+                <span>
+                  <%= form.label :place, "Loft", value: "Loft" %></span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1">Which of these describe your pace?</h1>
+    </div>
+    <div class="column is-half selection">
+      <div class="plans ">
+        <div class="input-group js-input-group">
+          <label class="plan basic-plan" for="Rental Unit">
+            <%= form.radio_button :rentingType,"Rental Unit",class:"form-control js-form-control",id:"Rental Unit" %>
+            <div class="plan-content apptType">
+              <span>  <%= form.label :rentingType, "Rental", value: "Rental Unit" %></span>
+              <span>A rental place within a multi unit residential building or complex</span>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="Condo">
+              <%= form.radio_button :rentingType,"Condo",class:"form-control js-form-control",id:"Condo" %>
+            <div class="plan-content apptType">
+              <span><%= form.label :rentingType, "Condominium(Condo)", value: "Condominium(Condo)" %></span>
+              <span>A place within a multi-unit bulding or complex owned by the residents</span>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="Loftss">
+              <%= form.radio_button :rentingType,"Loftss",class:"form-control js-form-control",id:"Loftss" %>
+            <div class="plan-content apptType">
+              <span><%= form.label :rentingType, "Loft", value: "Loftss" %></span>
+              <span>A open layout apartnebt or condom wich may have short interior walls</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1">What kind of these your guest will have?</h1>
+    </div>
+    <div class="column is-half selection">
+      <div class="plans ">
+        <div class="input-group js-input-group">
+          <label class="plan basic-plan" for="entire">
+            <%= form.radio_button :rentingType,"entire",class:"form-control js-form-control",id:"entire" %>
+            <div class="plan-content apptType">
+              <span><%= form.label :rentingType, "An entire place", value: "entire",style:"font-weight:bold" %></span>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="private">
+              <%= form.radio_button :rentingType,"private",class:"form-control js-form-control",id:"private" %>
+            <div class="plan-content apptType">
+              <span><%= form.label :rentingType, "A private room", value: "private",style:"font-weight:bold" %></span>
+            </div>
+          </label>
+          <label class="plan basic-plan" for="shared">
+              <%= form.radio_button :rentingType,"shared",class:"form-control js-form-control",id:"shared" %>
+             <div class="plan-content apptType">
+              <span><%= form.label :rentingType, "A shared room", value: "shared",style:"font-weight:bold" %></span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Let guest know what yout place has to offer</h1>
+    </div>
+    <div class="column is-half selection scroller">
+      <h1 class="title is-4 amenitiesQ mb-2">Do you have any standout amenities?</h1>
+      <div class="plans ">
+        <div class="input-group js-input-group">
+          <div class="columns" style="margin-top: -3% !important;">
+            <div class="column">
+              <label class="plan basic-plan amenities" for="pool">
+                <%= form.radio_button :amenities,"pool",class:"form-control js-form-control",id:"pool" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('swimming-pool') %>
+                  <%= form.label :amenities, "Pool", value: "pool",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="tub">
+                 <%= form.radio_button :amenities,"tub",class:"form-control js-form-control",id:"tub" %>
+                <div class="plan-content apptType amenities-box">
+                 <%= image_tag ('hot-tub') %>
+                 <%= form.label :amenities, "Hot tub", value: "tub",style:"font-weight:bold" %>
+                 <br>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Patio">
+                 <%= form.radio_button :amenities,"Patio",class:"form-control js-form-control",id:"Patio" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('table') %>
+                  <%= form.label :amenities, "Patio", value: "Patio",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="BBQ">
+                <%= form.radio_button :amenities,"BBQ",class:"form-control js-form-control",id:"BBQ" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('barbecue') %>
+                  <%= form.label :amenities, "BBQ gril", value: "BBQ",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="fire-pit">
+                <%= form.radio_button :amenities,"fire-pit",class:"form-control js-form-control",id:"fire-pit" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('bonfire') %>
+                  <%= form.label :amenities, "Fire pit", value: "fire-pit",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="pool-table">
+                <%= form.radio_button :amenities,"pool-table",class:"form-control js-form-control",id:"pool-table" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('pool-table') %>
+                    <%= form.label :amenities, "Pool table", value: "pool-table",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="gym">
+                <input type="radio" name="plan" id="gym" class="form-control js-form-control" required="required">
+                <%= form.radio_button :amenities,"gym",class:"form-control js-form-control",id:"gym" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('gym') %>
+                  <%= form.label :amenities, "Gym", value: "gym",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Let guest know what yout place has to offer</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav">
+      <h1 class="title is-4 amenitiesQ mb-2">What about these guest favorites?</h1>
+      <div class="plans ">
+        <div class="input-group js-input-group">
+          <div class="columns" style="margin-top: 5% !important;">
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Wifi">
 
-  <div class="field">
-    <%= form.label :hostingAs %>
-    <%= form.check_box :hostingAs %>
-  </div>
+                  <%= form.radio_button :guestFavorites,"Wifi",class:"form-control js-form-control",id:"Wifi" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('wifi') %>
+                  <%= form.label :guestFavorites, "Wifi", value: "Wifi",style:"font-weight:bold" %>
 
-  <div class="field">
-    <%= form.label :dangerousThings %>
-    <%= form.text_field :dangerousThings %>
-  </div>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="TV">
+                  <%= form.radio_button :guestFavorites,"TV",class:"form-control js-form-control",id:"TV" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('watch-tv') %>
+                  <%= form.label :guestFavorites, "TV", value: "TV",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="kitchen">
+                <%= form.radio_button :guestFavorites,"kitchen",class:"form-control js-form-control",id:"kitchen" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('kitchen') %>
+                  <%= form.label :guestFavorites, "kitchen", value: "kitchen",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Washer">
+                <%= form.radio_button :guestFavorites,"Washer",class:"form-control js-form-control",id:"Washer" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('washer') %>
+                  <%= form.label :guestFavorites, "Washer", value: "Washer",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Now, let's describe your place</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav">
+      <h1 class="title is-4 amenitiesQ mb-2">Choose up to two highlights</h1>
+      <div class="plans ">
+        <div class="input-group js-input-group">
+          <div class="columns" style="">
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Peacful">
+                <%= form.radio_button :highlights,"Peacful",class:"form-control js-form-control",id:"Peacful" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('sliper') %>
+                  <%= form.label :highlights, "Peacful", value: "Peacful",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Unique">
+                <%= form.radio_button :highlights,"Unique",class:"form-control js-form-control",id:"Unique" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('unique.png') %>
+                  <%= form.label :highlights, "Unique", value: "Unique",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Friendly">
+                  <%= form.radio_button :highlights,"Friendly",class:"form-control js-form-control",id:"Friendly" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('eco') %>
+                  <%= form.label :highlights, "Friendly", value: "Friendly",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Stylish">
+                <%= form.radio_button :highlights,"Stylish",class:"form-control js-form-control",id:"Stylish" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('house.png') %>
+                  <%= form.label :highlights, "Stylish", value: "Stylish",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Central">
+                <%= form.radio_button :highlights,"Central",class:"form-control js-form-control",id:"Central" %>
+                <div class="plan-content apptType amenities-box">
+                  <%= image_tag ('centralized') %>
+                  <%= form.label :highlights, "Central", value: "Central",style:"font-weight:bold" %>
+                </div>
+              </label>
+            </div>
+            <div class="column">
+              <label class="plan basic-plan amenities" for="Spacious">
+                <%= form.radio_button :highlights,"Spacious",class:"form-control js-form-control",id:"Spacious" %>
+                <div class="plan-content apptType amenities-box">
+                    <%= form.label :highlights, "Spacious", value: "Spacious",style:"font-weight:bold" %>
+                  <%= image_tag ('friends') %>
+                </div>
+              </label>
+            </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Next, let's add some photo of your place</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav" style="margin-top: 10% !important;">
+      <div class="file is-boxed">
+        <label class="file-label">
+          <%= form.file_field :images, multiple: true,class:"file-input" %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <%= image_tag('upload') %>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Let's give your place a name</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav scrollDiv">
+      <h1 class="title is-4 mb-2 ">Creat Your title</h1>
+      <%= form.text_field :title,class:"input",placeholder:"Title"%>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Now let's describe your place</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav scrollDivDesc">
+      <h1 class="title is-4 mb-2 ">Create your description</h1>
+        <%= form.text_area :description,class:"textarea", placeholder:"This unique place has astyle all its own"%>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Now for the fun part set your price</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav scrollDivPrice">
+      <h1 class="title is-4 mb-2 ">Per night</h1>
+      <%= form.number_field :price,class:"input", placeholder:"Price" %>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Just few last questions...</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav scrollDiv">
+      <h1 class="title is-4 mb-2 ">How are you hosting on Airbnb?</h1>
+      <div class="control" style="text-align: left;">
+        <label class="radio" style="display: -webkit-inline-box;">
+        <%= form.radio_button :hostingAs,"1"%>
+         <%= form.label :hostingAs, " I'm hosting as a private individual", value: "1" %>
+        </label><br>
+        <label class="radio" style="display: -webkit-inline-box;">
+          <%= form.radio_button :hostingAs,"2" %>
+           <%= form.label :hostingAs, " I'm hosting as a business", value: "2" %>
+        </label>
+      </div>
+      <h1 class="title is-4 mb-2 ">Do you have any pf these at your place?</h1>
+      <div class="control" style="">
+        <% @dangerousThings.each do |danger| %>
+        <label class="checkbox" style="display: -webkit-inline-box;">
+          <%= form.check_box :dangerousThings,{ multiple: true },value: danger %>
+          <%= form.label :dangerousThings, danger %>
+        </label><br>
+        <% end %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="step js-step">
+    <div class="column is-half text">
+      <h1 class="title is-1 mb-4">Where's your place located?</h1>
+    </div>
+    <div class="column is-half selection scrolle-fav ">
+      <div class="control" style="text-align: left;">
+          <%= form.text_field :street,class:"input",placeholder:"Street"%>
+          <%= form.text_field :suit,class:"input",placeholder:"Suit"%>
+          <%= form.text_field :country,class:"input",placeholder:"Country"%>
+          <%= form.text_field :city,class:"input",placeholder:"City"%>
+          <%= form.text_field :state,class:"input",placeholder:"State"%>
+          <%= form.text_field :zipCode,class:"input",placeholder:"Zip Code"%>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div class="footers">
+  <div class="progress-bar js-progress-bar"></div>
+  <div class="input-group text-right">
+    <button type="button" class="btn-prev js-btn-prev button is-text ">Prev</button>
+    <button type="button" class="js-btn-next button is-danger" data-step-text="Next" data-final-step-text="Submit">Next</button>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amenities %>
-    <%= form.text_field :amenities %>
-  </div>
-
-  <div class="field">
-    <%= form.label :guestFavorites %>
-    <%= form.text_field :guestFavorites %>
-  </div>
-
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.text_field :images %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :highlights %>
-    <%= form.text_field :highlights %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :suit %>
-    <%= form.text_field :suit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zipCode %>
-    <%= form.text_field :zipCode %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rentingType %>
-    <%= form.text_field :rentingType %>
-  </div>
-
-  <div class="field">
-    <%= form.label :place %>
-    <%= form.text_field :place %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>
