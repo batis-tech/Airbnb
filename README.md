@@ -1,6 +1,6 @@
 # Airbnb MVP
 
- Airbnb is an online marketplace that connects people who want to rent out their homes with people who are looking for accommodations in that locale , this portal  has multiaccess for people who are looking for accommodations and people who want to rent out their homes Through out the portal you can allocate your desired home and select the right price for you. this projoct was generated with [Rails 6](https://github.com/rails/rails) version 6.1.4.1 and Bulma CSS framework.
+ Airbnb is an online marketplace that connects people who want to rent out their homes with people who are looking for accommodations in that locale ,through out portal you can allocate your desired home and select the right price for you. this projoct was generated with [Rails 6](https://github.com/rails/rails) version 6.1.4.1 and Bulma CSS framework.
 
 # featuers
 - Two registration models for users and hosters
