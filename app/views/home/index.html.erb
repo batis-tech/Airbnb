@@ -1,148 +1,144 @@
 <%= render 'header' %>
 <section class="section is-large sec" id="section">
+  <%= search_form_for(@q, url:book_path(datefrom:params[:datefrom],dateto:params[:dateto])) do |f| %>
   <div class="columns  is-centered form" style="margin-top: 1%;">
     <div class="inline-form columns">
-      <div class="field column is-one-quarter">
+      <div class="field column is-one-third">
         <p class="control has-icons-left">
-          <input class="input" type="text" placeholder="Location">
+          <%= f.collection_select :country_cont, Apprtment.all, :country, :country, {:include_blank => "Country"}, class:"select input"%>
         </p>
       </div>
-      <div class="field column is-one-quarter">
+      <div class="field column is-one-third">
         <p class="control has-icons-left">
-          <input type="date">
-
+          <%= date_field_tag :from ,params[:from],class:"input", value: Date.today,id:"to",min: 0.days.ago, max: 3.months.from_now %>
         </p>
       </div>
-      <div class="field column is-one-quarter">
+      <div class="field column is-one-third">
         <p class="control has-icons-left">
-          <input class="input" type="date" placeholder="Add Date">
+        <%= date_field_tag :to ,params[:to],class:"input", value: Date.today,id:"to",min: 0.days.ago, max: 3.months.from_now %>
         </p>
       </div>
-      <div class="field column is-one-quarter">
-        <p class="control has-icons-left">
-          <input class="input" type="text" placeholder="Location">
-        </p>
-      </div>
-      <div class="field column is-one-quarter search">
-          <button class="button  is-danger ml-1 search-btn">S</button>
+      <div class="field column is-one-third search">
+        <button class="button  is-danger ml-1 search-btn">S</button>
       </div>
     </div>
   </div>
-  <div class="section-first">
-    <div class="columns is-centered">
-      <div class="column is-half mt-20">
-        <div class="content ">
-          <img class="img-main" src="https://a0.muscache.com/pictures/Storefronts/NoHo_Header_TitleLogo/original/3e8e526b-a760-47b0-89c2-e27049f2ede2.svg" alt="">
-          <h2 class="subtitle">
-            Winter Release
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <div class="columns pl-5">
-      <div class="column is-four-fifths">
-        <h2 class="subtitle" style="color:white">
-          A simple container to divide your page into ,like the one you're currently reading.
+<% end %>
+<div class="section-first">
+  <div class="columns is-centered">
+    <div class="column is-half mt-20">
+      <div class="content ">
+        <img class="img-main" src="https://a0.muscache.com/pictures/Storefronts/NoHo_Header_TitleLogo/original/3e8e526b-a760-47b0-89c2-e27049f2ede2.svg" alt="">
+        <h2 class="subtitle">
+          Winter Release
         </h2>
       </div>
-      <div class="column">
-        <button class="button is-light">Learn more</button>
-      </div>
     </div>
   </div>
+</div>
+<div class="container mt-5">
+  <div class="columns pl-5">
+    <div class="column is-four-fifths">
+      <h2 class="subtitle" style="color:white">
+        A simple container to divide your page into ,like the one you're currently reading.
+      </h2>
+    </div>
+    <div class="column">
+      <button class="button is-light">Learn more</button>
+    </div>
+  </div>
+</div>
 </section>
 <section class="section is-medium sec"></section>
 <section class="section is-medium sec"></section>
 <section class="section is-medium sec"></section>
 <section class="section is-large second" id="section">
-  <div class="section-second">
-    <div class="columns is-centered is-half mt-20">
-      <div class="content is-centered ">
-        <h2 class="title">
-          Not sure where to go? Perfect.
-        </h2>
-        <button class="button is-danger">I'm flexible</button>
-      </div>
+<div class="section-second">
+  <div class="columns is-centered is-half mt-20">
+    <div class="content is-centered ">
+      <h2 class="title">
+        Not sure where to go? Perfect.
+      </h2>
+      <button class="button is-danger">I'm flexible</button>
     </div>
   </div>
+</div>
 </section>
 <section class="section is-large third-section">
-  <div class="container">
-    <div class="columns pl-5">
-      <div class="column is-four-fifths">
-        <h2 class="title" style="color:black">
-          Inspiration for your next trip
-        </h2>
-      </div>
+<div class="container">
+  <div class="columns pl-5">
+    <div class="column is-four-fifths">
+      <h2 class="title" style="color:black">
+        Inspiration for your next trip
+      </h2>
     </div>
-    <div class="columns  is-centered is-mobile">
-      <div class="column">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-              </div>
+  </div>
+  <div class="columns  is-centered is-mobile">
+    <div class="column">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">John Smith</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="column"></div>
-      <div class="column"></div>
-      <div class="column"></div>
     </div>
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
   </div>
+</div>
 </section>
 <section class="section is-large fourth-section is-centered ">
-  <div class="section-fourth is-centered ">
-    <div class="columns   is-centered ">
-      <div class="column is-half is-centered ">
-        <div class="content mt-6">
-          <p>Intoducing</p>
-          <h2 class="subtitle ">
-            Arirbnb
-            <br>
-            gifts card
-          </h2>
-          <button class="button is-danger">I'm flexible</button>
-        </div>
-      </div>
-      <div class="column is-half is-centered gift">
-        <%= image_tag('gifcard') %>
+<div class="section-fourth is-centered ">
+  <div class="columns   is-centered ">
+    <div class="column is-half is-centered ">
+      <div class="content mt-6">
+        <p>Intoducing</p>
+        <h2 class="subtitle ">
+          Arirbnb
+          <br>
+          gifts card
+        </h2>
+        <button class="button is-danger">I'm flexible</button>
       </div>
     </div>
+    <div class="column is-half is-centered gift">
+      <%= image_tag('gifcard') %>
+    </div>
   </div>
+</div>
 </section>
 <section class="section is-large fifth-section is-centered ">
-  <div class="section-fourth is-centered ">
-    <div class="columns   is-centered ">
-      <div class="column is-half is-centered things">
-        <h2 class="subtitle ">
-          Things to do
-          <br>
-          from home
-          <br>
-          <button class="button is-light mt-5">Online Experiences</button>
-        </h2>
-      </div>
-      <div class="column is-half is-centered trip">
-        <h2 class="subtitle ">
-          Things to do
-          <br>
-          on your trip
-          <br>
-          <button class="button is-light mt-5">Experiences</button>
-        </h2>
+<div class="section-fourth is-centered ">
+  <div class="columns   is-centered ">
+    <div class="column is-half is-centered things">
+      <h2 class="subtitle ">
+        Things to do
+        <br>
+        from home
+        <br>
+        <button class="button is-light mt-5">Online Experiences</button>
+      </h2>
+    </div>
+    <div class="column is-half is-centered trip">
+      <h2 class="subtitle ">
+        Things to do
+        <br>
+        on your trip
+        <br>
+        <button class="button is-light mt-5">Experiences</button>
+      </h2>
 
-      </div>
     </div>
   </div>
+</div>
 </section>
 <%= render 'footer' %>

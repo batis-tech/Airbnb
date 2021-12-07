@@ -1,0 +1,13 @@
+<%= render 'owners/header' %>
+<div class="container mt-6">
+  <%= month_calendar(attribute: :dateFrom, end_attribute: :dateTo ,events: @allBooks) do |date, allBooks| %>
+    <%= date %>
+
+    <% allBooks.each do |allBooks| %>
+      <div>
+      <h1 class="active"><%= allBooks.user.full_name %><br>
+        <%= allBooks.user.phone %></h1>
+      </div>
+    <% end %>
+  <% end %>
+</div>

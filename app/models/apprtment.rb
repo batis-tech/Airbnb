@@ -1,6 +1,10 @@
 class Apprtment < ApplicationRecord
   mount_uploaders :images, ImageUploader
-  has_many_attached :images
   serialize :dangerousThings
+  serialize :images
+  belongs_to :user
+  has_many :books
+
+  TAGS = %i[Security-camera(s) Weapons Dangerous-animals]
 
 end

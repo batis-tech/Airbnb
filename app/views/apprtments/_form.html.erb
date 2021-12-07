@@ -327,19 +327,7 @@
       <h1 class="title is-1 mb-4">Next, let's add some photo of your place</h1>
     </div>
     <div class="column is-half selection scrolle-fav" style="margin-top: 10% !important;">
-      <div class="file is-boxed">
-        <label class="file-label">
-          <%= form.file_field :images, multiple: true,class:"file-input" %>
-          <span class="file-cta">
-            <span class="file-icon">
-              <%= image_tag('upload') %>
-            </span>
-            <span class="file-label">
-              Choose a file…
-            </span>
-          </span>
-        </label>
-      </div>
+        <%= form.file_field :images, multiple: true%>
     </div>
   </fieldset>
   <fieldset class="step js-step">
@@ -387,10 +375,10 @@
       </div>
       <h1 class="title is-4 mb-2 ">Do you have any pf these at your place?</h1>
       <div class="control" style="">
-        <% @dangerousThings.each do |danger| %>
+        <% Apprtment::TAGS.each do |danger| %>
         <label class="checkbox" style="display: -webkit-inline-box;">
-          <%= form.check_box :dangerousThings,{ multiple: true },value: danger %>
-          <%= form.label :dangerousThings, danger %>
+          <%= form.check_box :dangerousThings,{ multiple: true },danger %>
+          <%= form.label danger %>
         </label><br>
         <% end %>
       </div>
@@ -408,6 +396,7 @@
           <%= form.text_field :city,class:"input",placeholder:"City"%>
           <%= form.text_field :state,class:"input",placeholder:"State"%>
           <%= form.text_field :zipCode,class:"input",placeholder:"Zip Code"%>
+          <%= form.hidden_field :user_id ,value: @user %>
       </div>
     </div>
   </fieldset>

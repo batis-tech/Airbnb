@@ -1,19 +1,21 @@
 class ApprtmentsController < ApplicationController
   before_action :set_apprtment, only: %i[ show edit update destroy ]
+  before_action :restrict, only: %i[ show edit update destroy index]
 
   # GET /apprtments or /apprtments.json
   def index
-    @apprtments = Apprtment.all
+    @apprtments = Apprtment.where(user_id: current_hoster)
   end
 
   # GET /apprtments/1 or /apprtments/1.json
   def show
+
   end
 
   # GET /apprtments/new
   def new
     @apprtment = Apprtment.new
-    @dangerousThings = ['Security camera(s)','Weapons','Dangerous animals']
+    @user = current_hoster.id
   end
 
   # GET /apprtments/1/edit
@@ -23,7 +25,6 @@ class ApprtmentsController < ApplicationController
   # POST /apprtments or /apprtments.json
   def create
     @apprtment = Apprtment.new(apprtment_params)
-
     respond_to do |format|
       if @apprtment.save
         format.html { redirect_to @apprtment, notice: "Apprtment was successfully created." }
@@ -58,13 +59,22 @@ class ApprtmentsController < ApplicationController
   end
 
   private
+
+   def restrict
+     if @current_user == current_hoster
+       authenticate_hoster!
+     elsif @current_user == current_user
+       root_path
+     end
+   end
     # Use callbacks to share common setup or constraints between actions.
     def set_apprtment
       @apprtment = Apprtment.find(params[:id])
     end
 
+
     # Only allow a list of trusted parameters through.
     def apprtment_params
-      params.require(:apprtment).permit(:hostingAs, {:dangerousThings => []}, :price, :description, :amenities, :guestFavorites, {images: []} , :title, :highlights, :street, :suit, :city, :state, :country, :zipCode, :rentingType, :place)
+      params.require(:apprtment).permit(:hostingAs, { dangerousThings: [] }, :price, :description, :amenities, :guestFavorites, {images: []} , :title, :highlights, :street, :suit, :city, :state, :country, :zipCode, :rentingType, :place,:user_id)
     end
 end

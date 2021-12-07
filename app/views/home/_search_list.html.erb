@@ -1,0 +1,28 @@
+<% @app.each do |f| %>
+  <div class="column is-one-quarter" style="width:25%">
+    <div class="card card-book">
+      <div class="card-image">
+        <div id="slider">
+          <% f.images.each do |image| %>
+            <div class="img-slider">
+              <img src="<%= image.url %>" alt="">
+            </div>
+          <% end %>
+        </div>
+        <button id="prev"><%= image_tag('left-arrow',class:"fas fa-chevron-left fa-2x") %></button>
+        <button id="next"><%= image_tag('right-arrows',class:"fas fa-chevron-right fa-2x") %></button>
+      </div>
+      <div class="columns">
+
+        <div class="column is-two-thirds" style="padding: 0rem;">
+            <%= link_to list_path(f.id) do %><small><%= (f.title).truncate_words(4)%></small><% end %>
+        </div>
+        <div class="column" style="padding: 0rem;">
+          <small>$<%= f.price %>/night</small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>

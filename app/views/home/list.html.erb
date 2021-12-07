@@ -1,0 +1,154 @@
+<%= render 'header' %>
+<section class="hero is-medium list">
+  <div class="hero-body">
+    <figure class="image ">
+
+      <img src="<%= @apprtment.images.first %>">
+
+    </figure>
+  </div>
+</section>
+<div class="columns mb-6">
+  <div class="column is-three-fifths contents">
+    <h3 class="title is-3"><%= @apprtment.title %></h3>
+    <!-- <div class="columns appt-describe"> <div class="column"> <h6 class="title is-6">. 8 guests</h6> </div> <div class="column"> <h6 class="title is-6">. 4 bedrooms</h6> </div> <div class="column"> <h6 class="title is-6">. 6 bed</h6> </div> <div
+    class="column"> <h6 class="title is-6">. 2 baths</h6> </div> </div> -->
+    <hr>
+    <div class="block inc">
+      <h6 class="title is-5">Entire home</h6>
+      <h6 class="title is-6 has-text-weight-light">You’ll have the accommodation on the farm to yourself.</h6>
+    </div>
+    <div class="block inc">
+      <h6 class="title is-5">Enhanced Clean</h6>
+      <h6 class="title is-6 has-text-weight-light">This Host committed to Airbnb's 5-step enhanced cleaning process.</h6>
+    </div>
+    <div class="block inc">
+      <h6 class="title is-5">Self check-in</h6>
+      <h6 class="title is-6 has-text-weight-light">You can check in with the doorman.</h6>
+    </div>
+    <div class="block inc">
+      <h6 class="title is-5">Free cancellation for 48 hours</h6>
+    </div>
+    <hr>
+    <div class="block inc">
+      <h5 class="subtitle is-5 has-text-weight-light"><%= @apprtment.description %></h5>
+    </div>
+    <hr>
+    <div class="block inc">
+      <h6 class="title is-5">What this place offers</h6>
+      <div class="columns">
+        <div class="column">
+          <div class="block inc">
+            <h6 class="title is-5"><%= @apprtment.amenities %></h6>
+          </div>
+        </div>
+        <div class="column">
+          <div class="block inc">
+            <h6 class="title is-5"><%= @apprtment.guestFavorites %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="media">
+      <div class="media-content ">
+        <p class="title is-4">Hosted by
+          <%= @apprtment.user.full_name %></p>
+        <p class="subtitle is-6">Joined in
+          <%= @apprtment.user.created_at.to_date %></p>
+      </div>
+    </div>
+    <div class="content mt-3">
+      <p class="title is-5">During your stays</p>One of our farm managers will be on the farm the whole time. Cleaning services daily.
+    </div>
+    <button class="button is-medium">Contact Host</button>
+  </div>
+  <div class="column">
+    <%= form_with(model: @book,url: reserve_path,class: "meeting-form", local: false,id:"toooo",remote: true) do |form| %>
+    <div class="card stick">
+      <div class="block inc" style="display:flex">
+        <input type="hidden" name="" id="price" value="<%= @apprtment.price %>">
+          <input type="hidden" name="" id="apprtmentID" value="<%= @apprtment.id %>">
+        <h6 class="title is-5">$<%= @apprtment.price %>
+        </h6>/<small>night</small>
+
+      </div>
+      <div class="booking-form__input guests-input">
+        <%= form.hidden_field :appt , value: @apprtment.id ,id:"appt" %>
+        <%= form.date_field :dateform,class:"input-check href ", value: Date.today,id:"from",min: 0.days.ago, max: 3.months.from_now %>
+        <%= form.date_field :dateto,class:"input-check href", value: Date.today,id:"to",min: 0.days.ago, max: 3.months.from_now %>
+
+        <!-- /.guests-input__options -->
+      </div>
+      <!-- /.booking-form__input -->
+      <div class="columns mt-4" style="height: 3rem;">
+        <div class="column is-four-fifths" style="    display: flex;">
+        <h6 class="title is-5">$<%= @apprtment.price %>
+          </h6> X <h6 class="title is-5" id="result">1/<small>night</small></h6>
+        </div>
+        <div class="column">
+          <h6 class="title is-5" id="totalprice">$<%= @apprtment.price %></h6>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-four-fifths" style="    display: flex;">
+        <h6 class="title is-5">Service fee
+        </div>
+        <div class="column">
+          <h6 class="title is-5" id="service">$300</h6>
+        </div>
+      </div>
+      <hr>
+      <div class="columns">
+        <div class="column is-four-fifths" style="    display: flex;">
+        <h6 class="title is-5">total
+        </div>
+        <div class="column">
+            <h6 class="title is-5" id="total"></h6>
+        </div>
+      </div>
+
+      <div class=" has-text-centered pt-3">
+        <%= button_tag "Book",class:"button is-normal is-danger ",style:"height: 3.4rem;width: 50%;",id:"reserve" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>
+<%= render 'footer' %>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+
+$(document).ready(function () {
+  var appt = $('#appt').val();
+  var from = $('#from').val();
+  var to = $('#to').val();
+  var price = $('#price').val();
+    var apprtmentID = $('#apprtmentID').val();
+  $("#result").val(1);
+
+  $(".href").change(function () {
+    $.ajax({
+      url: '/list/' + $('#appt').val() + '?from=' + $('#from').val() +'?'+'to=' + $('#to').val(),
+      type: 'GET',
+      success: function () {
+
+        var url = window.history.replaceState('list', $('#appt').val(), '?from=' + $('#from').val() +'&'+'to=' + $('#to').val()+'&'+'price=' + $('#price').val()+'&'+'source=' + $('#apprtmentID').val());
+        var dateFrom = new Date($('#from').val());
+        var dateTo = new Date($('#to').val());
+        var oneDay = 24 * 60 * 60 * 1000;
+        var diffDays = Math.abs((dateFrom.getTime() - dateTo.getTime()) / (oneDay));
+        var output = diffDays + " days";
+        $("#result").html(output);
+        totalPrice = price * diffDays;
+        $("#totalprice").html(totalPrice);
+        total = totalPrice + 300;
+        $("#total").html(total);
+          $('#reserve').click(function(){ window.location = "/reserve"+ ('?from=' + $('#from').val() +'&'+'to=' + $('#to').val()+'&'+'price=' + $('#price').val()+'&'+'source=' + $('#apprtmentID').val())});
+      }
+    })
+  })
+
+});
+</script>

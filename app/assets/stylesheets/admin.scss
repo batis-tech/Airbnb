@@ -1,0 +1,31 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.bbt{
+  .card{
+    width: 60%;
+    .subtitle.is-6 {
+      font-size: 12px;
+  }
+  }
+  .active{
+    background: #ff8e92;
+  padding: 5px;
+  border-radius: 12px;
+  color: white;
+  }
+  .calendar-heading{
+    background: #ff8e92;
+  padding: 4px;
+  border-radius: 4px;
+  color: white;
+  .calendar-title{
+    background: #e77378;
+  padding: 5px;
+  }
+
+  a{
+    color: white
+  }
+  }
+}

@@ -1,0 +1,91 @@
+<%= render 'header' %>
+<%= form_with(model: @book,url: confirm_path,class: "meeting-form") do |form| %>
+<div class="columns mb-6 mt-5">
+  <div class="column is-three-fifths contents">
+    <h3 class="title is-3">Confirm and pay</h3>
+    <!-- <div class="columns appt-describe"> <div class="column"> <h6 class="title is-6">. 8 guests</h6> </div> <div class="column"> <h6 class="title is-6">. 4 bedrooms</h6> </div> <div class="column"> <h6 class="title is-6">. 6 bed</h6> </div> <div
+    class="column"> <h6 class="title is-6">. 2 baths</h6> </div> </div> -->
+    <hr>
+    <div class="block inc">
+      <h6 class="title is-5">Your trip</h6>
+    </div>
+    <div class="block inc">
+      <h6 class="title is-6">Dates</h6>
+      <h6 class="title is-6 has-text-weight-light">From:<%= @from %>
+        | to:<%= @to %></h6>
+    </div>
+    <div class="block inc">
+      <h6 class="title is-6">Pay with</h6>
+      <h6 class="title is-6 has-text-weight-light">From:<%= @from %>
+        | to:<%= @to %></h6>
+    </div>
+    <div class="block inc mb-6">
+      <h6 class="title is-6">Cancellation policy</h6>
+      <h6 class="title is-6 has-text-weight-light">Free cancellation before 3:00 PM on Jan 2. After that, cancel before 3:00 PM on Jan 3 and get a full refund, minus the first night and service fee.</h6>
+    </div>
+    <%= form.hidden_field :user_id ,value: current_user.id %>
+    <%= form.hidden_field :renter,value: @apprtment.user_id %>
+    <%= form.hidden_field :apprtment_id,value: @apprtment.id %>
+    <%= form.hidden_field :dateFrom,value:@from %>
+    <%= form.hidden_field :dateTo,value:@to %>
+    <%= form.hidden_field :price ,value: @total %>
+  <%= render 'payment_form'%>
+    <%= form.submit "Confirm and pay",class:"button is-normal is-danger mt-6" %>
+  </div>
+  <div class="column">
+    <div class="card stick">
+      <div class="block inc" style="display:flex">
+        <div class="columns">
+          <div class="column">
+            <figure class="image " style="height: 75px;width: 103px;">
+              <img src="<%= @apprtment.images.first %>" alt="Placeholder image" style="border-radius:8px">
+            </figure>
+          </div>
+          <div class="column is-four-fifths">
+            <small class="subtitle is-6"><%= @apprtment.title %></small><br>
+            <small><%= @apprtment.rentingType %>
+              <%= @apprtment.place %></small>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h6 class="title is-5">Price details</h6>
+      <!-- /.booking-form__input -->
+      <div class="columns" style="height: 3rem;">
+        <div class="column is-three-quarters" style="display: flex;">
+
+          <h6 class="title is-5 has-text-weight-light mr-1">$<%= @apprtment.price %>
+          </h6>
+          <h6 class="title is-5 has-text-weight-light">X</h6>
+          <h6 class="title is-5 has-text-weight-light ml-1" id="result"><%= @totalDays %>/<small>
+              night</small>
+          </h6>
+        </div>
+        <div class="column">
+          <h6 class="title is-5 has-text-weight-light" id="totalprice">$<%= @DayAndPrice %></h6>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-four-fifths" style="    display: flex;">
+          <h6 class="title is-5 has-text-weight-light">Service fee
+          </div>
+          <div class="column">
+            <h6 class="title is-5 has-text-weight-light" id="service">$300</h6>
+          </div>
+        </div>
+        <hr>
+        <div class="columns">
+          <div class="column is-three-quarters" style="    display: flex;">
+            <h6 class="title is-5 ">total
+            </div>
+            <div class="column">
+              <h6 class="title is-5" id="total has-text-weight-light">$<%= @total %></h6>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <%= render 'footer' %>

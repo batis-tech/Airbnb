@@ -12,7 +12,10 @@
  *
  *= require_tree .
  *= require_self
+*= require simple_calendar
  */
+
+
  .hero.is-primary.is-bold {
      background-image: radial-gradient(circle at center,#FF385C 0%,#E61E4D 27.5%,#E31C5F 40%,#D70466 57.5%,#BD1E59 75%,#BD1E59 100%) !important;
  }
@@ -31,4 +34,9 @@
     color: #4a4a4a;
     display: block ;
     padding: 1.25rem ;
+}
+.button.is-danger:hover{
+    background-color: #f14668 !important;
+    border-color: transparent !important;
+    color: #fff !important;
 }

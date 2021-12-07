@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_163713) do
+ActiveRecord::Schema.define(version: 2021_12_07_173213) do
 
   create_table "apprtments", force: :cascade do |t|
     t.boolean "hostingAs"
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(version: 2021_11_22_163713) do
     t.string "place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_apprtments_on_user_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "apprtment_id"
+    t.date "dateFrom"
+    t.date "dateTo"
+    t.string "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "renter"
+    t.index ["apprtment_id"], name: "index_books_on_apprtment_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,8 +65,11 @@ ActiveRecord::Schema.define(version: 2021_11_22_163713) do
     t.string "lName"
     t.decimal "phone"
     t.boolean "hoster"
+    t.string "strip_cutomer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "apprtments"
+  add_foreign_key "books", "users"
 end

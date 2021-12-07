@@ -1,51 +1,35 @@
 <%= render 'header' %>
 <div class="container is-fullhd">
-  <div class="columns is-desktop is-multiline">
-    <% @apprtments.each do |f| %>
-    <div class="column is-one-quarter">
-      <div class="card card-book">
-        <div class="card-image">
-            <div id="slider">
-              <% f.images.each do |image| %>
-              <div class="img-slider">
-                <img src="<%= image.url %>" alt="">
-              </div>
-              <% end %>
-            </div>
-         <button id="prev"><i class="fas fa-chevron-left fa-2x"></i></button>
-         <button id="next"><i class="fas fa-chevron-right fa-2x"></i></button>
-        </div>
-        <div class="columns">
-          <div class="column">
-            <small><%= f.title%></small>
-          </div>
-          <div class="column">
-            <small><%= f.price %>$/per night</small>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column">
-            <small><%= f.price %>$/per night</small>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <% end %>
+  <%= search_form_for(@q, url: book_path(datefrom:params[@from],dateto:params[@to])) do |f| %>
+  <div class="columns" style="width:95%">
+    <div class="column "><%= f.collection_select :country_cont, Apprtment.all, :country, :country, {:include_blank => "Country"}, class:"select"%></div>
+    <div class="column"><%= f.collection_select :city_cont, Apprtment.all, :city, :city, {:include_blank => "City"}, class:"select"%></div>
+    <div class="column"><%= f.collection_select :place_cont,Apprtment.all,:place ,:place, {:include_blank => "Place"}, class:"select"%></div>
+    <div class="column"><%= f.collection_select :amenities_cont,Apprtment.all,:amenities ,:amenities, {:include_blank => "Amenities"}, class:"select"%></div>
+    <div class="column "><%= f.collection_select :highlights_cont, Apprtment.all, :highlights, :highlights, {:include_blank => "Highlights"}, class:"select"%></div>
+    <div class="column"><%= f.collection_select :rentingType_cont, Apprtment.all, :rentingType, :rentingType, {:include_blank => "Renting Type"}, class:"select"%></div>
+    <%= f.submit id:"click",style:"display:none"%>
   </div>
+<% end %>
+<div class="columns is-desktop is-multiline">
+  <%= render "search_list" %>
+</div>
 </div>
 <%= render 'footer' %>
 <script type="text/javascript">
-  const slider = document.getElementById('slider');
+const slider = document.getElementById('slider');
 const prevSlider = document.getElementById('prev');
 const nextSlider = document.getElementById('next');
 
-
 nextSlider.addEventListener('click', (e) => {
-    slider.scrollBy(300, 0);
+  slider.scrollBy(300, 0);
 });
 
 prevSlider.addEventListener('click', (e) => {
-    slider.scrollBy(-300, 0);
+  slider.scrollBy(-300, 0);
+});
+$(".select").change(function () {
+  $("#click").click();
+
 });
 </script>

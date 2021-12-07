@@ -1,0 +1,64 @@
+<%= render 'owners/header' %>
+<div class="container mb-6">
+  <p class="title is-3  mt-4">Today</p>
+  <p class="subtitle is-5"> Booking</p>
+  <div class="columns">
+    <% @book.each do |f| %>
+      <div class="column is-one-third mt-2 bbt">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="<%= f.apprtment.images.first %>" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <p class="subtitle is-6">Title: <%= f.apprtment.title %></p>
+              <p class="subtitle is-6">Name: <%= f.user.full_name %></p>
+              <p class="subtitle is-6">Phone: <%= f.user.phone %></p>
+               <div class="columns">
+                 <div class="column">
+                  <p class="subtitle is-6">Check-in: <%= f.dateFrom %></p>
+                 </div>
+                 <div class="column">
+                  <p class="subtitle is-6">Check-out: <%= f.dateTo %></p>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <p class="title is-3  mt-6">Coming</p>
+  <p class="subtitle is-5"> Booking</p>
+  <div class="columns">
+    <% @comingBook.each do |f| %>
+      <div class="column is-one-third mt-2">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="<%= f.apprtment.images.first %>" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <p class="subtitle is-6">Title: <%= f.apprtment.title %></p>
+              <p class="subtitle is-6">Name: <%= f.user.full_name %></p>
+              <p class="subtitle is-6">Phone: <%= f.user.phone %></p>
+               <div class="columns">
+                 <div class="column">
+                  <p class="subtitle is-6">Check-in: <%= f.dateFrom %></p>
+                 </div>
+                 <div class="column">
+                  <p class="subtitle is-6">Check-out: <%= f.dateTo %></p>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'home/footer' %>
